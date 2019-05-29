@@ -1,0 +1,30 @@
+
+<h1>WORD COUNT</h1>
+<h2>Results</h2>
+
+<form action = "{% url 'count' %}">
+    <textarea cols="400" rows="500" name="fulltext" style="width: 821px; height: 429px;">
+        {{ text }}
+    </textarea>
+    <br>
+    <!--input type="submit" value="count !"/-->    <h4>COUNT : {{ words }}</h4>
+    <a href = "{% url 'home'  %}"><input type="button" value="recount"/></a> <br>
+    <!-- {{ dict }} -->
+    <br>
+    <table border = 2px >
+        <thead>
+            <tr>
+                <td> Word </td>
+                <td> Frequency </td>
+            </tr>
+        </thead>
+        {% for word,counttotal in list %}
+            
+                <tr>
+                    <td>{{ word }}</td>     
+                    <td>{{ counttotal }}</td>
+                </tr>
+            
+        {% endfor %}
+    </table>
+</form>
